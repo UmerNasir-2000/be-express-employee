@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EmployeeModule } from './employee/employee.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
-    MongooseModule.forRoot(process.env.MONGO_ATLAS_URI),
+    MongooseModule.forRoot(
+      'mongodb+srv://Umer:umer@umercluster.038er.mongodb.net/?retryWrites=true&w=majority',
+    ),
     EmployeeModule,
   ],
   controllers: [AppController],
